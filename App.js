@@ -20,7 +20,8 @@ const App = () => {
   return (
     <Provider store={appStore}>
       <PersistGate persistor={appPersistor}>
-        <StatusBar
+        <DevDoido />
+        {/* <StatusBar
           barStyle="light-content"
           backgroundColor={darken(0.2, appColors.primary)}
         />
@@ -28,7 +29,7 @@ const App = () => {
           <NavigationContainer>
             <DevDoido />
           </NavigationContainer>
-        </PaperProvider>
+        </PaperProvider> */}
       </PersistGate>
     </Provider>
   );
