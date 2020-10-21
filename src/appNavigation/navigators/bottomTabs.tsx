@@ -2,28 +2,23 @@ import React from 'react';
 import color from 'color';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { useTheme, Portal, FAB } from 'react-native-paper';
-import { useSafeArea } from 'react-native-safe-area-context';
-import { useIsFocused, RouteProp } from '@react-navigation/native';
-
+import { useSafeAreaInsets  } from 'react-native-safe-area-context';
+import { useIsFocused } from '@react-navigation/native';
 import overlay from './overlay';
-import { Feed } from './feed';
-import { Message } from './message';
-import { Notifications } from './notifications';
-import { StackNavigatorParamlist } from './types';
+import { Feed } from '../../screens/Notification/feed';
+import { Message } from '../../screens/Message/message';
+import { Notifications } from '../../screens/Notification/notifications';
+import Home from '../../screens/Home/Home';
 
 const Tab = createMaterialBottomTabNavigator();
 
-type Props = {
-  route: RouteProp<StackNavigatorParamlist, 'FeedList'>;
-};
-
-export const BottomTabs = (props: Props) => {
+export const BottomTabs = (props) => {
   const routeName = props.route.state
     ? props.route.state.routes[props.route.state.index].name
     : 'Feed';
 
   const theme = useTheme();
-  const safeArea = useSafeArea();
+  const safeArea = useSafeAreaInsets();
   const isFocused = useIsFocused();
 
   let icon = 'feather';

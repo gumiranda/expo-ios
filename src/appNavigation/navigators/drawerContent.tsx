@@ -1,7 +1,5 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {
-  DrawerContentComponentProps,
-  DrawerContentOptions,
   DrawerContentScrollView,
   DrawerItem,
 } from '@react-navigation/drawer';
@@ -19,24 +17,27 @@ import {
   useTheme,
 } from 'react-native-paper';
 import Animated from 'react-native-reanimated';
+import { NavigationContext,useLinkTo } from '@react-navigation/native';
 
 import { PreferencesContext } from './context/preferencesContext';
 
-type Props = DrawerContentComponentProps<DrawerNavigationProp>;
-
-export function DrawerContent(props: Props) {
+const goToLink = (link) =>{
+  const linkTo = useLinkTo();
+  linkTo(link)
+}
+export function DrawerContent(props) {
   const paperTheme = useTheme();
   const { rtl, theme, toggleRTL, toggleTheme } = React.useContext(
     PreferencesContext
   );
-
+  const navigation = NavigationContext;
   const translateX = Animated.interpolate(props.progress, {
     inputRange: [0, 0.5, 0.7, 0.8, 1],
     outputRange: [-100, -85, -70, -45, 0],
   });
 
   return (
-    <DrawerContentScrollView {...props}>
+    <DrawerContentScrollView  {...props}>
       <Animated.View
         //@ts-ignore
         style={[
@@ -62,20 +63,20 @@ export function DrawerContent(props: Props) {
               size={50}
             />
           </TouchableOpacity>
-          <Title style={styles.title}>Dawid Urbaniak</Title>
-          <Caption style={styles.caption}>@trensik</Caption>
+          <Title style={styles.title}>Salão da Dona Maria</Title>
+          <Caption style={styles.caption}>@donaMaria</Caption>
           <View style={styles.row}>
             <View style={styles.section}>
               <Paragraph style={[styles.paragraph, styles.caption]}>
                 202
               </Paragraph>
-              <Caption style={styles.caption}>Obserwuje</Caption>
+              <Caption style={styles.caption}>Profissionais</Caption>
             </View>
             <View style={styles.section}>
               <Paragraph style={[styles.paragraph, styles.caption]}>
                 159
               </Paragraph>
-              <Caption style={styles.caption}>Obserwujący</Caption>
+              <Caption style={styles.caption}>Seguidores</Caption>
             </View>
           </View>
         </View>
@@ -96,7 +97,7 @@ export function DrawerContent(props: Props) {
               <MaterialCommunityIcons name="tune" color={color} size={size} />
             )}
             label="Preferences"
-            onPress={() => {}}
+            onPress={() => {navigation.navigate('Messages');}}
           />
           <DrawerItem
             icon={({ color, size }) => (

@@ -2,8 +2,8 @@ import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import { useTheme } from 'react-native-paper';
 
-import { NotificationTwitt } from './components/notificationTwitt';
-import { notificationTweets } from './data';
+import { NotificationTwitt } from '../../components/Post/notificationTwitt';
+import { notificationTweets } from '../../appNavigation/navigators/data';
 
 type NotificationTwittProps = React.ComponentProps<typeof NotificationTwitt>;
 

@@ -3,6 +3,7 @@
   "displayName": "belezix",
   "expo": {
     "name": "belezix",
+    "scheme":"belezix",
     "slug": "belezix",
     "version": "1.0.0",
     "assetBundlePatterns": [

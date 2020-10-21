@@ -6,10 +6,9 @@ import { Appbar, Avatar, useTheme } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { BottomTabs } from './bottomTabs';
-import { Details } from './details';
-import { StackNavigatorParamlist } from './types';
+import { Details } from '../../screens/Post/details';
 
-const Stack = createStackNavigator<StackNavigatorParamlist>();
+const Stack = createStackNavigator();
 
 export const StackNavigator = () => {
   const theme = useTheme();

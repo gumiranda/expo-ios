@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { MaterialBottomTabNavigationProp } from '@react-navigation/material-bottom-tabs';
 import { Headline, Caption, useTheme, Button } from 'react-native-paper';
 
-import overlay from './overlay';
+import overlay from '../../appNavigation/navigators/overlay';
 
 type Props = {
   navigation: MaterialBottomTabNavigationProp<{}>;

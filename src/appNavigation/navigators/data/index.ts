@@ -1,5 +1,5 @@
-import { Twitt } from '../components/twitt';
-import { NotificationTwitt } from '../components/notificationTwitt';
+import {Twitt} from '../../../components/Post/twitt';
+import {NotificationTwitt} from '../../../components/Post/notificationTwitt';
 
 type TwittProps = React.ComponentProps<typeof Twitt>;
 

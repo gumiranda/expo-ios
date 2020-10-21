@@ -1,11 +1,11 @@
 import React from 'react';
 import { FlatList, View, StyleSheet } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { useTheme } from 'react-native-paper';
+import { useTheme,Text } from 'react-native-paper';
 
-import { Twitt } from './components/twitt';
-import { twitts } from './data';
-import { StackNavigatorParamlist } from './types';
+import { Twitt } from '../../components/Post/twitt';
+import { twitts } from '../../appNavigation/navigators/data';
+import { StackNavigatorParamlist } from '../../appNavigation/navigators/types';
 
 type TwittProps = React.ComponentProps<typeof Twitt>;
 
@@ -17,13 +17,8 @@ function keyExtractor(item: TwittProps) {
   return item.id.toString();
 }
 
-type Props = {
-  navigation?: StackNavigationProp<StackNavigatorParamlist>;
-};
-
-export const Feed = (props: Props) => {
+export const Feed = (props) => {
   const theme = useTheme();
-
   const data = twitts.map(twittProps => ({
     ...twittProps,
     onPress: () =>
@@ -33,7 +28,7 @@ export const Feed = (props: Props) => {
       }),
   }));
 
-  return (
+  return (<>
     <FlatList
       contentContainerStyle={{ backgroundColor: theme.colors.background }}
       style={{ backgroundColor: theme.colors.background }}
@@ -43,6 +38,6 @@ export const Feed = (props: Props) => {
       ItemSeparatorComponent={() => (
         <View style={{ height: StyleSheet.hairlineWidth }} />
       )}
-    />
+    /></>
   );
 };

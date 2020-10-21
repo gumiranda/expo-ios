@@ -1,10 +1,10 @@
 import React from 'react';
 import color from 'color';
-import { Dimensions } from 'react-native';
+import { Dimensions,Text } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 
-import overlay from './overlay';
+import overlay from '../../appNavigation/navigators/overlay';
 import { Feed } from './feed';
 import { AllNotifications } from './all';
 
@@ -14,7 +14,9 @@ const All = () => <AllNotifications />;
 
 const Mentions = () => <Feed />;
 
-export const Notifications = () => {
+export const Notifications = (props) => {
+  console.warn('PROPS',props)
+  console.warn('id',props.route.params?.id)
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: 'all', title: 'All' },
@@ -48,6 +50,8 @@ export const Notifications = () => {
 
   return (
     <React.Fragment>
+          {/* <Text>Hello {props.route.params?.id || "Unknown"}!</Text> */}
+
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
